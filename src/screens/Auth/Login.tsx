@@ -7,10 +7,15 @@ import {
   Button,
   ButtonText,
 } from "@gluestack-ui/themed";
+import { useNavigation } from "@react-navigation/native";
 
-import { EyeOff } from "lucide-react";
+import { NoAuthNavigationProp } from "@routes/noauth.routes";
+import { useAuth } from "@contexts/manager.routes";
 
 export function Login() {
+  const navigation = useNavigation<NoAuthNavigationProp>();
+  const { login } = useAuth();
+
   return (
     <View flex={1}>
       <View alignItems="center" marginHorizontal={20} marginTop={60}>
@@ -41,7 +46,7 @@ export function Login() {
             <InputField placeholder="Senha" bgColor="$white" pl={15} />
           </Input>
 
-          <Button backgroundColor="$blue500" w="80%" style={{ borderRadius: 5 }}>
+          <Button backgroundColor="$blue500" w="80%" style={{ borderRadius: 5 }} onPress={ login }>
             <ButtonText>
               Entrar
             </ButtonText>
@@ -52,7 +57,7 @@ export function Login() {
       <View flex={1} alignItems="center" bgColor="$white" justifyContent="center" paddingBottom={30}>
         <Text mb={10}>Ainda não tem acesso?</Text>
         <Button backgroundColor="$warmGray300" w="75%" style={{ borderRadius: 5 }}>
-          <ButtonText color="$black">
+          <ButtonText color="$black" onPress={() => navigation.navigate('SignUp')}>
             Criar uma conta
           </ButtonText>
         </Button>
