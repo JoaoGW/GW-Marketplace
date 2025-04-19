@@ -7,6 +7,7 @@ import {
   Button,
   ButtonText,
 } from "@gluestack-ui/themed";
+
 import { useNavigation } from "@react-navigation/native";
 
 import { NoAuthNavigationProp } from "@routes/noauth.routes";
@@ -27,26 +28,22 @@ export function Login() {
           <Text textAlign="center" fontSize="$sm" marginBottom={15}>Acesse sua conta</Text>
           <Input // E-mail input
             size="md"
-            isDisabled={false}
-            isInvalid={false}
-            isReadOnly={false}
             marginBottom={20}
             w="80%"
+            isRequired
           >
             <InputField placeholder="E-mail" bgColor="$white" pl={15} />
           </Input>
           <Input // Password Input
             size="md"
-            isDisabled={false}
-            isInvalid={false}
-            isReadOnly={false}
             marginBottom={30}
             w="80%"
+            isRequired
           >
-            <InputField placeholder="Senha" bgColor="$white" pl={15} />
+            <InputField placeholder="Senha" bgColor="$white" pl={15} type="password" />
           </Input>
 
-          <Button backgroundColor="$blue500" w="80%" style={{ borderRadius: 5 }} onPress={ login }>
+          <Button backgroundColor="$blue500" w="80%" style={{ borderRadius: 5 }} onPress={login}>
             <ButtonText>
               Entrar
             </ButtonText>
@@ -56,8 +53,8 @@ export function Login() {
 
       <View flex={1} alignItems="center" bgColor="$white" justifyContent="center" paddingBottom={30}>
         <Text mb={10}>Ainda não tem acesso?</Text>
-        <Button backgroundColor="$warmGray300" w="75%" style={{ borderRadius: 5 }}>
-          <ButtonText color="$black" onPress={() => navigation.navigate('SignUp')}>
+        <Button backgroundColor="$warmGray300" w="75%" onPress={() => navigation.navigate('SignUp')} style={{ borderRadius: 5 }}>
+          <ButtonText color="$black">
             Criar uma conta
           </ButtonText>
         </Button>
