@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import { NoAuthRoutes } from "./noauth.routes";
 import { AuthRoutes } from "./auth.routes";
-import { useAuth } from "src/contexts/manager.routes";
+import { useAuth } from "@contexts/manager.routes";
 
 export function Routes() {
   const { isAuthenticated } = useAuth();

@@ -1,6 +1,6 @@
 import { View } from "@gluestack-ui/themed"
 
-export function Catalog(){
+export function Home(){
   return(
     <View></View>
   )
