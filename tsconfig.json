@@ -27,9 +27,6 @@
       ],
       "@data/*": [
         "./src/data/*"
-      ],
-      "@contexts/*": [
-        "./src/contexts/*"
       ]
     }
   }
