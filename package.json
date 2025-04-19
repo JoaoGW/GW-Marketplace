@@ -9,10 +9,19 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@expo-google-fonts/karla": "^0.3.0",
+    "@gluestack-style/react": "^1.0.57",
+    "@gluestack-ui/config": "^1.1.20",
+    "@gluestack-ui/themed": "^1.1.73",
+    "babel-plugin-module-resolver": "^5.0.2",
     "expo": "~52.0.46",
     "expo-status-bar": "~2.0.1",
     "react": "18.3.1",
-    "react-native": "0.76.9"
+    "react-dom": "^19.1.0",
+    "react-native": "0.76.9",
+    "react-native-safe-area-context": "^5.4.0",
+    "react-native-svg": "^15.11.2",
+    "react-native-svg-transformer": "^1.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

@@ -1,20 +1,32 @@
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+import { GluestackUIProvider } from '@gluestack-ui/themed';
+import { View, Text } from '@gluestack-ui/themed';
+import { config } from './config/gluestack-ui.config';
+
+import { useFonts, Karla_300Light, Karla_700Bold } from '@expo-google-fonts/karla';
+
+import { Loading } from '@components/Loading';
+
+
 
 export default function App() {
+  const [ fontsLoaded ] = useFonts({ Karla_300Light, Karla_700Bold });
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GluestackUIProvider config={config}>
+      <SafeAreaView style={{ flex: 1, marginHorizontal: 20 }}>
+        <View flex={1}>
+          <StatusBar style="auto" />
+          
+          { fontsLoaded 
+            ? '' 
+            : <Loading /> 
+          }
+
+        </View>
+      </SafeAreaView>
+    </GluestackUIProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
