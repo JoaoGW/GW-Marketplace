@@ -6,6 +6,7 @@ import { House, Tag, LogOut } from 'lucide-react-native';
 
 import { useNavBar } from '@contexts/NavbarContext';
 import { AuthNavigationProp } from '@routes/auth.routes';
+
 import { QuitApp } from './QuitApp';
 
 export function Navbar(){
