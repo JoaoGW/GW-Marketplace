@@ -21,6 +21,7 @@ export function HomeHeader() {
             source={{
               uri: "https://avatars.githubusercontent.com/u/68306736?v=4",
             }}
+            alt="User Profile Photo"
           />
         </Avatar>
         <Text>
