@@ -6,6 +6,7 @@ import { House, Tag, LogOut } from 'lucide-react-native';
 
 import { useNavBar } from '@contexts/NavbarContext';
 import { AuthNavigationProp } from '@routes/auth.routes';
+import { QuitApp } from './QuitApp';
 
 export function Navbar(){
   const { currentActive, setCurrentActive } = useNavBar();
@@ -26,7 +27,9 @@ export function Navbar(){
     >
       <House color={ currentActive === 'Home' ? 'black' : 'gray'} size={30} onPress={() => { setCurrentActive("Home"); navigation.navigate('Home'); }}/>
       <Tag color={ currentActive === 'Listings' ? 'black' : 'gray'} size={30} onPress={() => { setCurrentActive("Listings"); navigation.navigate('UserListings'); }}/>
-      <LogOut color='red' size={30}/>
+      <QuitApp>
+        <LogOut color='red' size={30}/>
+      </QuitApp>
     </View>
   )
 }
