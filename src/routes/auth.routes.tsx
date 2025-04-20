@@ -17,7 +17,7 @@ export type AuthNavigationProp = NativeStackNavigationProp<AuthStackParamList>;
 export function AuthRoutes(){
   return(
     <NavbarContext>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Navigator screenOptions={{ headerShown: false, animation: 'none' }}>
         <Stack.Screen name="Home" component={Home}/>
         <Stack.Screen name="UserListings" component={UserListings}/>
       </Stack.Navigator>
