@@ -1,7 +1,4 @@
 import {
-  Avatar,
-  AvatarFallbackText, //It should be modified after the implementation of the API for signup 
-  AvatarImage, //It should be modified after the implementation of the API for signup 
   View,
   Text,
   Button,
@@ -9,21 +6,15 @@ import {
   ButtonIcon
 } from "@gluestack-ui/themed";
 
+import { AvatarProfile } from "./AvatarProfile";
+
 import { Plus } from "lucide-react-native";
 
 export function HomeHeader() {
   return (
-    <View justifyContent="space-between" marginHorizontal={30} mb={50} flexDirection="row">
+    <View justifyContent="space-between" marginHorizontal={30} mb={40} flexDirection="row">
       <View maxWidth="50%" flexDirection="row" alignItems="center">
-        <Avatar size="md" borderWidth={3} borderColor="$blue500" borderRadius="100%" mr={10}>
-          <AvatarFallbackText>Nome Genérico</AvatarFallbackText>
-          <AvatarImage
-            source={{
-              uri: "https://avatars.githubusercontent.com/u/68306736?v=4",
-            }}
-            alt="User Profile Photo"
-          />
-        </Avatar>
+        <AvatarProfile iconSize="md" borderStyle="$blue500"/>
         <Text>
           Boas vindas,
           {"\n"}
