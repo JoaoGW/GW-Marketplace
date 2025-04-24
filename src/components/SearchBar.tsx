@@ -3,12 +3,17 @@ import {
   InputField,
   InputSlot,
   InputIcon,
-  Divider
+  Divider,
+  Button
 } from "@gluestack-ui/themed";
 
 import { Search, SlidersVertical } from "lucide-react-native";
 
+import { useSheetFilters } from "@contexts/SheetFiltersContext";
+
 export function SearchBar() {
+  const { showActionsheet, setShowActionsheet } = useSheetFilters();
+
   return (
     <Input
       variant="outline"
@@ -19,7 +24,9 @@ export function SearchBar() {
       <InputSlot mr={5} flexDirection="row">
         <InputIcon as={Search} color="black" marginHorizontal={10} />
         <Divider orientation="vertical" />
-        <InputIcon as={SlidersVertical} color="black" marginHorizontal={10} />
+        <Button variant="link" onPress={() => setShowActionsheet(true)}>
+          <InputIcon as={SlidersVertical} color="black" marginHorizontal={10} />
+        </Button>
       </InputSlot>
     </Input>
   )

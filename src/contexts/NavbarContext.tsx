@@ -11,12 +11,12 @@ export function useNavBar(){
   return useContext(ActivePage);
 }
 
-export function NavbarContext({children}: {children: ReactNode}){
+export function NavbarContext({ children }: {children: ReactNode}){
   const [currentActive, setCurrentActive] = useState("Home");
 
   return(
     <ActivePage.Provider value={{ currentActive, setCurrentActive }}>
-      {children}
+      { children }
     </ActivePage.Provider>
   )
 }
