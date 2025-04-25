@@ -8,7 +8,7 @@ export function ConditionBadge(props: BadgeDetails){
   return(
     <View 
       bgColor={ props.badgeTypeColor === 'used' ? "$warmGray700" : "$blue900" }
-      borderRadius={10}
+      borderRadius={15}
       p={5}
       mt={5}
       w={ props.badgeTypeColor === 'used' ? '$16' : '$12' }

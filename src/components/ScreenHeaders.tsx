@@ -1,3 +1,5 @@
+import { useNavigation } from '@react-navigation/native';
+
 import {
   View,
   Text,
@@ -14,11 +16,13 @@ type HeaderStyleConfiguration = {
 }
 
 export function ScreenHeaders(props: HeaderStyleConfiguration) {
+  const navigation = useNavigation();
+
   return (
     <View justifyContent='space-between' flexDirection='row' alignItems='center' paddingHorizontal={30} h="7%">
       <View flex={1} alignItems="flex-start">
         {props.comeback === true ? (
-          <Button variant="link">
+          <Button variant="link" onPress={ () => navigation.goBack() }>
             <ButtonIcon as={ArrowLeft} size="xl" color="$black" />
           </Button>
         ) : null}
