@@ -10,35 +10,33 @@ import {
 import { ArrowLeft } from 'lucide-react-native';
 
 type HeaderStyleConfiguration = {
-  comeback?: boolean,
-  headerTitle?: string,
-  actionButton?: React.ReactNode
-}
+  comeback?: boolean;
+  headerTitle?: string;
+  actionButton?: React.ElementType;
+};
 
-export function ScreenHeaders(props: HeaderStyleConfiguration) {
+export function ScreenHeaders({ actionButton: Icon, comeback, headerTitle }: HeaderStyleConfiguration) {
   const navigation = useNavigation();
 
   return (
-    <View justifyContent='space-between' flexDirection='row' alignItems='center' paddingHorizontal={30} h="7%">
-      <View flex={1} alignItems="flex-start">
-        {props.comeback === true ? (
-          <Button variant="link" onPress={ () => navigation.goBack() }>
+    <View justifyContent="space-between" flexDirection="row" alignItems="center" paddingHorizontal={30} h="7%">
+      <View alignItems="flex-start" w="10%">
+        {comeback === true ? (
+          <Button variant="link" onPress={() => navigation.goBack()}>
             <ButtonIcon as={ArrowLeft} size="xl" color="$black" />
           </Button>
         ) : null}
       </View>
 
-      {/* Segundo elemento: Centralizado */}
-      <View flex={1} alignItems="center">
-        <Text fontSize="$xl" fontWeight="$bold">
-          {props.headerTitle}
+      <View alignItems="center" w="80%">
+        <Text fontSize="$xl" fontWeight="$bold" color='$black'>
+          {headerTitle}
         </Text>
       </View>
 
-      {/* Terceiro elemento: Alinhado à direita */}
-      <View flex={1} alignItems="flex-end">
-        {props.actionButton ? props.actionButton : null}
+      <View alignItems="flex-end" w="10%">
+        {Icon ? <Icon size={30} color="black" /> : null}
       </View>
     </View>
-  )
+  );
 }

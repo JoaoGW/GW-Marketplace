@@ -13,12 +13,12 @@ import { SheetFiltersContext } from "@contexts/SheetFiltersContext";
 export function Home() {
   {/* TODO: Modify here after I start to receive data from the API */}
   const listingData = [
-    { component: ListingPreview, props: {} },
-    { component: ListingPreview, props: {} },
-    { component: ListingPreview, props: {} },
-    { component: ListingPreview, props: {} },
-    { component: ListingPreview, props: {} },
-    { component: ListingPreview, props: {} },
+    { component: ListingPreview, props: { imageUri: "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/primary/ProductShowcasesampleimages/JPEG/Product+Showcase-1.jpg", avatarShow: true, conditionBadge: true, title: "Tênis Vermelho", price: " 59,90", activated: true } },
+    { component: ListingPreview, props: { imageUri: "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/primary/ProductShowcasesampleimages/JPEG/Product+Showcase-1.jpg", avatarShow: true, conditionBadge: true, title: "Tênis Vermelho", price: " 59,90", activated: true } },
+    { component: ListingPreview, props: { imageUri: "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/primary/ProductShowcasesampleimages/JPEG/Product+Showcase-1.jpg", avatarShow: true, conditionBadge: true, title: "Tênis Vermelho", price: " 59,90", activated: true } },
+    { component: ListingPreview, props: { imageUri: "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/primary/ProductShowcasesampleimages/JPEG/Product+Showcase-1.jpg", avatarShow: true, conditionBadge: true, title: "Tênis Vermelho", price: " 59,90", activated: true } },
+    { component: ListingPreview, props: { imageUri: "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/primary/ProductShowcasesampleimages/JPEG/Product+Showcase-1.jpg", avatarShow: true, conditionBadge: true, title: "Tênis Vermelho", price: " 59,90", activated: true } },
+    { component: ListingPreview, props: { imageUri: "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/primary/ProductShowcasesampleimages/JPEG/Product+Showcase-1.jpg", avatarShow: true, conditionBadge: true, title: "Tênis Vermelho", price: " 59,90", activated: true } },
   ];
 
   return (
