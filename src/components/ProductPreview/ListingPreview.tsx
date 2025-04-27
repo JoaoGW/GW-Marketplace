@@ -2,12 +2,20 @@ import { useNavigation } from '@react-navigation/native';
 
 import { View, Text, Image, Pressable } from '@gluestack-ui/themed';
 
-import { AvatarProfile } from '@components/AvatarProfile';
-import { ConditionBadge } from './ConditionBadge';
+import { ListingThumbnail } from './ListingThumbnail';
 
 import { AuthNavigationProp } from '@routes/auth.routes';
 
-export function ListingPreview() {
+type ListingPreviewProps = {
+  imageUri: string,
+  avatarShow: boolean,
+  conditionBadge: boolean,
+  title: string,
+  price: string,
+  activated: boolean
+};
+
+export function ListingPreview({ imageUri, avatarShow, conditionBadge, title, price, activated }: ListingPreviewProps) {
   const navigation = useNavigation<AuthNavigationProp>();
 
   const handleVisitProduct = () => {
@@ -19,42 +27,24 @@ export function ListingPreview() {
       w="47%"
       maxHeight={230}
       mb={25}
-      onPress={ handleVisitProduct }
+      onPress={handleVisitProduct}
     >
-      <View>
-        <Image
-          source={{
-            uri: 'https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/primary/ProductShowcasesampleimages/JPEG/Product+Showcase-1.jpg',
-          }}
-          alt="Product"
-          w={200}
-          h={110}
-          resizeMode="cover"
-          borderRadius={7}
-        />
-        <View
-          position="absolute"
-          top={0}
-          left={0}
-          right={0}
-          p={5}
-          flexDirection="row"
-          justifyContent="space-between"
-        >
-          <AvatarProfile iconSize="sm" borderStyle="$white" />
-          <ConditionBadge badgeTypeColor="new" />
-        </View>
-      </View>
+      <ListingThumbnail
+        imageUri={imageUri}
+        avatarShow={avatarShow}
+        conditionBadge={conditionBadge}
+        activated={activated}
+      />
       <View mt={2}>
-        <Text style={{ lineHeight: 20, marginBottom: 0 }}>Tênis Vermelho</Text>
+        <Text style={{ lineHeight: 20, marginBottom: 0 }}>{ title }</Text>
         <Text
           fontSize="$sm"
           fontWeight="$bold"
           style={{ lineHeight: 20, marginBottom: 0 }}
         >
           R$
-          <Text fontWeight="$bold" fontSize="$lg" style={{ lineHeight: 20}}>
-            59,90
+          <Text fontWeight="$bold" fontSize="$lg" style={{ lineHeight: 20 }}>
+            { price }
           </Text>
         </Text>
       </View>
