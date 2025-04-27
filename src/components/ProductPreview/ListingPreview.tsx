@@ -19,7 +19,11 @@ export function ListingPreview({ imageUri, avatarShow, conditionBadge, title, pr
   const navigation = useNavigation<AuthNavigationProp>();
 
   const handleVisitProduct = () => {
-    navigation.navigate('ListedProduct');
+    if(avatarShow){
+      navigation.navigate('ListedProduct');
+    }else{
+      navigation.navigate('UserListedProduct');
+    }
   };
 
   return (
