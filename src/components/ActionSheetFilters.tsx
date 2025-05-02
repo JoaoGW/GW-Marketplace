@@ -55,7 +55,7 @@ export function ActionSheetFilters() {
           </VStack>
         </ActionsheetItem>
         <ActionsheetItem mt={25}>
-          <HStack flex={1} ml={10}>
+          <HStack flex={1} ml={10} justifyContent="center" alignItems="center">
             <ButtonRegular bgType="$warmGray300" textContent="Resetar Filtros" textColor="$black" style={{ marginRight: 15 }}/>
             <ButtonRegular bgType="$warmGray900" textContent="Aplicar Filtros" textColor="$white" />
           </HStack>

@@ -10,12 +10,13 @@ import {
 import { ArrowLeft } from 'lucide-react-native';
 
 type HeaderStyleConfiguration = {
-  comeback?: boolean;
-  headerTitle?: string;
-  actionButton?: React.ElementType;
+  comeback?: boolean,
+  headerTitle?: string,
+  actionButton?: React.ElementType,
+  actionButtonFunctionality?: () => void;
 };
 
-export function ScreenHeaders({ actionButton: Icon, comeback, headerTitle }: HeaderStyleConfiguration) {
+export function ScreenHeaders({ actionButton: Icon, actionButtonFunctionality, comeback, headerTitle }: HeaderStyleConfiguration) {
   const navigation = useNavigation();
 
   return (
@@ -35,7 +36,11 @@ export function ScreenHeaders({ actionButton: Icon, comeback, headerTitle }: Hea
       </View>
 
       <View alignItems="flex-end" w="10%">
-        {Icon ? <Icon size={30} color="black" /> : null}
+        { Icon ? (
+          <Button variant="link" onPress={actionButtonFunctionality}>
+            <ButtonIcon as={Icon} size="xl" color="$black" />
+          </Button>
+        ) : null }
       </View>
     </View>
   );
