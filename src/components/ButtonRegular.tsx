@@ -9,7 +9,7 @@ type ButtonProperties = {
 
 export function ButtonRegular(props: ButtonProperties){
   return(
-    <Button size="lg" variant="solid" bgColor={ props.bgType } style={ props.style }>
+    <Button w="50%" size="lg" variant="solid" bgColor={ props.bgType } style={ props.style }>
       <ButtonText color={ props.textColor }>{ props.textContent }</ButtonText>
     </Button>
   )

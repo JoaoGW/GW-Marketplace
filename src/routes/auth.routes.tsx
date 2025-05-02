@@ -4,7 +4,8 @@ import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { Home } from "@screens/App/Catalog/Home";
 import { UserListings } from "@screens/App/UserListings/UserListings";
 import { ListingDetails } from "@screens/App/Catalog/ListingDetails";
-import { UserListingDetials } from "@screens/App/UserListings/UserListingDetials";
+import { UserListingDetials } from "@screens/App/UserListings/UserListingDetails";
+import { CreateListing } from "@screens/App/Managing/CreateListing";
 
 import { NavbarContext } from "@contexts/NavbarContext";
 
@@ -15,6 +16,7 @@ type AuthStackParamList = {
   UserListings: undefined;
   ListedProduct: undefined;
   UserListedProduct: undefined;
+  CreateListing: undefined;
 }
 export type AuthNavigationProp = NativeStackNavigationProp<AuthStackParamList>;
 
@@ -28,6 +30,7 @@ export function AuthRoutes(){
         <Stack.Screen name="UserListedProduct">
           { () => <UserListingDetials activated={true} /> }
         </Stack.Screen>
+        <Stack.Screen name="CreateListing" component={CreateListing}/>
       </Stack.Navigator>
     </NavbarContext>
   )
