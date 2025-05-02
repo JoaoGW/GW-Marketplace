@@ -6,6 +6,7 @@ import { UserListings } from "@screens/App/UserListings/UserListings";
 import { ListingDetails } from "@screens/App/Catalog/ListingDetails";
 import { UserListingDetials } from "@screens/App/UserListings/UserListingDetails";
 import { CreateListing } from "@screens/App/Managing/CreateListing";
+import { PreviewListing } from "@screens/App/Managing/PreviewListing";
 
 import { NavbarContext } from "@contexts/NavbarContext";
 
@@ -17,6 +18,7 @@ type AuthStackParamList = {
   ListedProduct: undefined;
   UserListedProduct: undefined;
   CreateListing: undefined;
+  Preview: undefined;
 }
 export type AuthNavigationProp = NativeStackNavigationProp<AuthStackParamList>;
 
@@ -31,6 +33,7 @@ export function AuthRoutes(){
           { () => <UserListingDetials activated={true} /> }
         </Stack.Screen>
         <Stack.Screen name="CreateListing" component={CreateListing}/>
+        <Stack.Screen name="Preview" component={PreviewListing}/>
       </Stack.Navigator>
     </NavbarContext>
   )

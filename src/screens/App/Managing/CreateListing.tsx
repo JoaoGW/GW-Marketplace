@@ -85,8 +85,8 @@ export function CreateListing() {
         </View>
         <View bgColor="$white" p={25}>
           <HStack flex={1} justifyContent="center" alignItems="center">
-            <ButtonRegular bgType="$warmGray300" textContent="Cancelar" textColor="$black" style={{ marginRight: 15 }} />
-            <ButtonRegular bgType="$warmGray900" textContent="Avançar" textColor="$white" />
+            <ButtonRegular bgType="$warmGray300" textContent="Cancelar" textColor="$black" style={{ marginRight: 15 }} onPress={ navigation.goBack }/>
+            <ButtonRegular bgType="$warmGray900" textContent="Avançar" textColor="$white" onPress={ () => navigation.navigate('Preview') }/>
           </HStack>
         </View>
       </View>

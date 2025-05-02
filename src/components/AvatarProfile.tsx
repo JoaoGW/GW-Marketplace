@@ -11,7 +11,7 @@ type Props = {
 
 export function AvatarProfile(props: Props) {
   return (
-    <Avatar size={ props.iconSize } borderWidth={3} borderColor={ props.borderStyle } borderRadius="100%" mr={10}>
+    <Avatar size={ props.iconSize } borderWidth={3} borderColor={ props.borderStyle } borderRadius="100%" mr={5}>
       <AvatarFallbackText>Nome Genérico</AvatarFallbackText>
       <AvatarImage
         source={{
