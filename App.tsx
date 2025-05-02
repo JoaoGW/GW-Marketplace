@@ -5,14 +5,14 @@ import { GluestackUIProvider } from '@gluestack-ui/themed';
 import { View, Text } from '@gluestack-ui/themed';
 import { config } from './config/gluestack-ui.config';
 
-import { useFonts, Karla_300Light, Karla_700Bold } from '@expo-google-fonts/karla';
+import { useFonts, Karla_700Bold, Karla_400Regular } from '@expo-google-fonts/karla';
 
 import { Loading } from '@components/Loading';
 
 
 
 export default function App() {
-  const [ fontsLoaded ] = useFonts({ Karla_300Light, Karla_700Bold });
+  const [fontsLoaded] = useFonts({ Karla_400Regular, Karla_700Bold });
 
   return (
     <GluestackUIProvider config={config}>
