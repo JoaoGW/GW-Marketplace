@@ -1,6 +1,8 @@
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 
+import { useFonts, Karla_700Bold, Karla_400Regular } from '@expo-google-fonts/karla';
+
 import { GluestackUIProvider } from '@gluestack-ui/themed';
 import { View, Text } from '@gluestack-ui/themed';
 import { config } from './config/gluestack-ui.config';
