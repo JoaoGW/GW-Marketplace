@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
@@ -45,13 +46,11 @@ export function SignUp() {
       setIsLoading(true);
 
       const formData = new FormData();
-
       formData.append('avatar', {
         uri: fotoUsuario,
         name: 'avatar.jpg',
-        type: 'image/jpeg'
+        type: 'image/jpeg',
       } as any);
-
       formData.append('name', nome);
       formData.append('email', email);
       formData.append('tel', telefone);
@@ -60,26 +59,27 @@ export function SignUp() {
       const response = await fetch('http://192.168.1.185:3333/users', {
         method: 'POST',
         headers: {
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
         body: formData,
       });
 
       if (!response.ok) {
-        let errorData = {};
-        try {
-          errorData = await response.json();
-        } catch (e) {
-          errorData = { message: "Erro desconhecido ou resposta vazia da API." };
-        }
-        console.error("Erro ao criar usuário:", errorData);
+        const errorData = await response.json();
+        console.error('Erro ao criar usuário:', errorData);
         throw new Error(`Erro ao criar usuário. Status: ${response.status}`);
       }
 
       const data = await response.json();
-      console.log("Usuário criado com sucesso:", data);
+      console.log('Usuário criado com sucesso:', data);
+      
+      if (data.token) {
+        await AsyncStorage.setItem('token', data.token);
+      }
+
+      navigation.navigate('Login');
     } catch (error) {
-      console.error("Erro ao enviar os dados:", error);
+      console.error('Erro ao enviar os dados:', error);
     } finally {
       setIsLoading(false);
     }

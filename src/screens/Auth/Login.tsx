@@ -1,3 +1,7 @@
+import { useState } from "react";
+import { Alert } from "react-native";
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {
   View,
   Text,
@@ -14,8 +18,46 @@ import { NoAuthNavigationProp } from "@routes/noauth.routes";
 import { useAuth } from "@contexts/manager.routes";
 
 export function Login() {
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
   const navigation = useNavigation<NoAuthNavigationProp>();
   const { login } = useAuth();
+
+  async function handleLogin() {
+    try {
+      const loginResponse = await fetch('http://192.168.1.185:3333/login', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password: senha }),
+      });
+
+      if (!loginResponse.ok) {
+        throw new Error('Credenciais inválidas');
+      }
+
+      const loginData = await loginResponse.json();
+      const token = loginData.token;
+
+      await login(token);
+
+      // Faz a requisição GET para obter os dados do usuário
+      const response = await fetch('http://192.168.1.185:3333/users/me', {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Token inválido ou expirado');
+      }
+
+      const userData = await response.json();
+      console.log('Usuário autenticado:', userData);
+    } catch (e) {
+      Alert.alert('Erro ao fazer login', 'Verifique suas credenciais e tente novamente.');
+    }
+  }
 
   return (
     <View flex={1}>
@@ -32,7 +74,7 @@ export function Login() {
             w="80%"
             isRequired
           >
-            <InputField placeholder="E-mail" bgColor="$white" pl={15} />
+            <InputField placeholder="E-mail" bgColor="$white" pl={15} value={email} onChangeText={setEmail} />
           </Input>
           <Input // Password Input
             size="md"
@@ -40,10 +82,10 @@ export function Login() {
             w="80%"
             isRequired
           >
-            <InputField placeholder="Senha" bgColor="$white" pl={15} type="password" />
+            <InputField placeholder="Senha" bgColor="$white" pl={15} type="password" value={senha} onChangeText={setSenha} />
           </Input>
 
-          <Button backgroundColor="$blue500" w="80%" style={{ borderRadius: 5 }} onPress={login}>
+          <Button backgroundColor="$blue500" w="80%" style={{ borderRadius: 5 }} onPress={handleLogin}>
             <ButtonText>
               Entrar
             </ButtonText>
